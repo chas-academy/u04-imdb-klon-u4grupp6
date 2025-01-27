@@ -15,3 +15,6 @@
 
 5. Open the site in your browser
 6. Pester Terra on discord or slack if it doesn't work
+
+___________________
+https://docs.google.com/document/d/1-u5DLuDcwLrIKqimLbYnJhikdFoBjkNDHeptmRSiznI/edit?tab=t.0
