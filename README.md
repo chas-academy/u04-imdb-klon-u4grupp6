@@ -18,3 +18,5 @@
 
 ___________________
 https://docs.google.com/document/d/1-u5DLuDcwLrIKqimLbYnJhikdFoBjkNDHeptmRSiznI/edit?tab=t.0
+
+ER diagram: https://dbdiagram.io/d/uo4-6797c64b263d6cf9a034174a
