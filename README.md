@@ -17,6 +17,8 @@
 6. Pester Terra on discord or slack if it doesn't work
 
 ___________________
-https://docs.google.com/document/d/1-u5DLuDcwLrIKqimLbYnJhikdFoBjkNDHeptmRSiznI/edit?tab=t.0
+möte anteckningar: https://docs.google.com/document/d/1-u5DLuDcwLrIKqimLbYnJhikdFoBjkNDHeptmRSiznI/edit?tab=t.0
 
 ER diagram: https://dbdiagram.io/d/uo4-6797c64b263d6cf9a034174a
+
+figma design: https://www.figma.com/design/kbI7YI3FXKayGtfz6l9tj7/U04?node-id=55-83&t=vG2UPvy1LU2QJrby-1
