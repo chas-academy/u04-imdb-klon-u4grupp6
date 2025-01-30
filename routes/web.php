@@ -6,4 +6,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard','dashboard');
+Route::view('/dashboard','dashboard');
+Route::view('/login','login');
+Route::view('/movielist','movielist');
+Route::view('/reviews','reviews');
