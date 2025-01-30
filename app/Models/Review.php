@@ -16,8 +16,7 @@ class Review extends Model
         return $this->belongsTo(Movie::class);
     }
 
-    // commented because im not sure what to do about the default laravel User model
-    // public function user(): BelongsTo {
-    //     return $this->belongsTo(User::class);
-    // }
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class);
+    }
 }
