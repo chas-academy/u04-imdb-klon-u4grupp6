@@ -31,7 +31,7 @@
                         'duration' => '1hr 53min',
                         'description' => 'Recep struggles with life after the loss of his grandmother. Comedy and drama ensue.',
                         'director' => 'Togan Gökbakar',
-                        'image' => 'https://via.placeholder.com/80x120?text=Recep+Ivedik+3'
+                        'image' => 'https://m.media-amazon.com/images/M/MV5BNDcxNzAyZjMtMDZiMS00NmNiLTkxNmQtYzFhNjUxYmQzNDdjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg'
                     ],
                     [
                         'title' => 'Sky Force',
@@ -39,7 +39,7 @@
                         'duration' => '2hr 5min',
                         'description' => 'An epic tale of aviation heroes saving the world in the face of a global crisis.',
                         'director' => 'Sandra Kwok',
-                        'image' => 'https://via.placeholder.com/80x120?text=Sky+Force'
+                        'image' => 'https://m.media-amazon.com/images/M/MV5BZTViYzEwYjMtMDJlNy00ZTdiLWE3YWMtN2Q3MWFiYTFjZGZmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg'
                     ],
                     [
                         'title' => 'Rush Hour',
@@ -47,7 +47,7 @@
                         'duration' => '1hr 31min',
                         'description' => 'A Hong Kong detective teams up with an LAPD officer to solve a kidnapping case.',
                         'director' => 'Brett Ratner',
-                        'image' => 'https://via.placeholder.com/80x120?text=Rush+Hour'
+                        'image' => 'https://m.media-amazon.com/images/M/MV5BMTA0Nzg5NjQ0MDBeQTJeQWpwZ15BbWU3MDE4Mzg5NDE@._V1_.jpg'
                     ],
                     [
                         'title' => '22 Jump Street',
@@ -55,7 +55,7 @@
                         'duration' => '2hr 12min',
                         'description' => 'Two undercover cops go to college to take down a drug ring.',
                         'director' => 'Phil Lord & Christopher Miller',
-                        'image' => 'https://via.placeholder.com/80x120?text=22+Jump+Street'
+                        'image' => 'https://m.media-amazon.com/images/M/MV5BMTcwNzAxMDU1M15BMl5BanBnXkFtZTgwNDE2NTU1MTE@._V1_.jpg'
                     ]
                 ] as $index => $movie)
                 <div class="flex items-start gap-4 bg-gray-50 p-4 rounded-lg shadow-sm">

@@ -5,7 +5,7 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CollectionController;
 use Illuminate\Support\Facades\Route;
-
+Route::view('/movielist', 'movielist');
 Route::view('/', 'home');
 Route::controller(MovieController::class)->group(function() {
     Route::get('/movies', 'index');
