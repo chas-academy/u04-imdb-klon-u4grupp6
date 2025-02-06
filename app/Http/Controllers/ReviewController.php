@@ -15,7 +15,7 @@ class ReviewController extends Controller
     public function index()
     {
         $reviews = Review::all();
-        return view("reviews.index", ['reviews' => $reviews]);
+        return view("review.index", ['reviews' => $reviews]);
     }
 
     /**
@@ -23,7 +23,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        return view('reviews.create');
+        return view('review.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class ReviewController extends Controller
         $movie->reviews()->save($review);
         $user->reviews()->save($review);
 
-        return redirect()->route('reviews.index')->with('success', 'Review created successfully');
+        return redirect()->route('review.index')->with('success', 'Review created successfully');
     }
 
     /**
@@ -49,7 +49,7 @@ class ReviewController extends Controller
     public function show(string $id)
     {
         $review = Review::findOrFail( $id );
-        return view('reviews.show', ['movie' => $review]);
+        return view('review.show.{id}', ['movie' => $review]);
     }
 
     /**
@@ -58,7 +58,7 @@ class ReviewController extends Controller
     public function edit(string $id)
     {
         $review = Review::findOrFail( $id );
-        return view('reviews.edit', ['review'=> $review]);
+        return view('review.edit.{id}', ['review'=> $review]);
     }
 
     /**
@@ -73,7 +73,7 @@ class ReviewController extends Controller
 
         $review->save();
 
-        return redirect()->route('reviews.index')->with('success','Review updated successfully');
+        return redirect()->route('review.index')->with('success','Review updated successfully');
     }
 
     /**
@@ -83,6 +83,6 @@ class ReviewController extends Controller
     {
         $review = Review::findOrFail( $id );
         $review->delete();
-        return redirect()->route('reviews.index')->with('success','Review deleted successfully');
+        return redirect()->route('review.index')->with('success','Review deleted successfully');
     }
 }

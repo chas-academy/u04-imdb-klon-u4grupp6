@@ -13,7 +13,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return view("movies.index", ['movies' => $movies]);
+        return view("movie.index", ['movies' => $movies]);
     }
 
     /**
@@ -21,7 +21,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        return view('movies.create');
+        return view('movie.create');
     }
 
     /**
@@ -35,7 +35,7 @@ class MovieController extends Controller
             'genre' => $request->genre
         ]);
 
-        return redirect()->route('movies.index')->with('success','Movie added successfully');
+        return redirect()->route('movie.index')->with('success','Movie added successfully');
     }
 
     /**
@@ -44,7 +44,7 @@ class MovieController extends Controller
     public function show(string $id)
     {
         $movie = Movie::findOrFail($id);
-        return view('movies.show', ['movie' => $movie]);
+        return view('movie.show.{id}', ['movie' => $movie]);
     }
 
     /**
@@ -53,7 +53,7 @@ class MovieController extends Controller
     public function edit(string $id)
     {
         $movie = Movie::findOrFail($id);
-        return view('movies.edit', ['movie'=> $movie]);
+        return view('movie.edit.{id}', ['movie'=> $movie]);
     }
 
     /**
@@ -69,7 +69,7 @@ class MovieController extends Controller
 
         $movie->save();
 
-        return redirect()->route('movies.index')->with('success','Movie updated successfully');
+        return redirect()->route('movie.index')->with('success','Movie updated successfully');
     }
 
     /**
@@ -79,6 +79,6 @@ class MovieController extends Controller
     {
         $movie = Movie::findOrFail($id);
         $movie->delete();
-        return redirect()->route('movies.index')->with('success','Movie deleted successfully');
+        return redirect()->route('movie.index')->with('success','Movie deleted successfully');
     }
 }

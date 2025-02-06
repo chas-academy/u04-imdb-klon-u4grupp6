@@ -13,7 +13,7 @@ class CollectionController extends Controller
     public function index()
     {
         $collections = Collection::all();
-        return view("collections.index", ["collections" => $collections]);
+        return view("collection.index", ["collections" => $collections]);
     }
 
     /**
@@ -21,7 +21,7 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        return view("collections.create");
+        return view("collection.create");
     }
 
     /**
@@ -36,7 +36,7 @@ class CollectionController extends Controller
 
         $collection->movies()->attatch($request->movie_ids);
 
-        return redirect()->route('collections.index')->with('success','Collection created successfully');
+        return redirect()->route('collection.index')->with('success','Collection created successfully');
     }
 
     /**
@@ -45,7 +45,7 @@ class CollectionController extends Controller
     public function show(string $id)
     {
         $collection = Collection::findOrFail( $id );
-        return view('collections.view', ['collection' => $collection]);
+        return view('collection.show.{id}', ['collection' => $collection]);
     }
 
     /**
@@ -54,7 +54,7 @@ class CollectionController extends Controller
     public function edit(string $id)
     {
         $collection = Collection::findOrFail( $id );
-        return view('collections.edit', ['collection'=> $collection]);
+        return view('collection.edit.{id}', ['collection'=> $collection]);
     }
 
     /**
@@ -69,7 +69,7 @@ class CollectionController extends Controller
 
         $collection->movies()->sync($request->movie_ids);
 
-        return redirect()->route('collections.index')->with('success','Collection updated successfully');
+        return redirect()->route('collection.index')->with('success','Collection updated successfully');
     }
 
     /**
@@ -81,6 +81,6 @@ class CollectionController extends Controller
 
         $collection->delete();
 
-        return redirect()->route('collections.index')->with('success','Collection deleted successfully');
+        return redirect()->route('collection.index')->with('success','Collection deleted successfully');
     }
 }
