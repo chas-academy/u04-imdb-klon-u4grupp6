@@ -45,7 +45,7 @@ class CollectionController extends Controller
     public function show(string $id)
     {
         $collection = Collection::findOrFail( $id );
-        return view('collection.show.{id}', ['collection' => $collection]);
+        return view('collection.show', ['collection' => $collection]);
     }
 
     /**
@@ -54,7 +54,7 @@ class CollectionController extends Controller
     public function edit(string $id)
     {
         $collection = Collection::findOrFail( $id );
-        return view('collection.edit.{id}', ['collection'=> $collection]);
+        return view('collection.edit', ['collection'=> $collection]);
     }
 
     /**

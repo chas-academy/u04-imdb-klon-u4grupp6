@@ -44,7 +44,7 @@ class MovieController extends Controller
     public function show(string $id)
     {
         $movie = Movie::findOrFail($id);
-        return view('movie.show.{id}', ['movie' => $movie]);
+        return view('movie.show', ['movie' => $movie]);
     }
 
     /**
@@ -53,7 +53,7 @@ class MovieController extends Controller
     public function edit(string $id)
     {
         $movie = Movie::findOrFail($id);
-        return view('movie.edit.{id}', ['movie'=> $movie]);
+        return view('movie.edit', ['movie'=> $movie]);
     }
 
     /**
