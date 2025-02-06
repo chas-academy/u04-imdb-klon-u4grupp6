@@ -25,7 +25,7 @@
                     <div class="w-36">
                         <svg class=""src=""></svg>
                     </div>
-                    
+
                 </ul>
             </div>
         </section>
