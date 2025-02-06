@@ -49,7 +49,7 @@ class ReviewController extends Controller
     public function show(string $id)
     {
         $review = Review::findOrFail( $id );
-        return view('review.show.{id}', ['movie' => $review]);
+        return view('review.show', ['movie' => $review]);
     }
 
     /**
@@ -58,7 +58,7 @@ class ReviewController extends Controller
     public function edit(string $id)
     {
         $review = Review::findOrFail( $id );
-        return view('review.edit.{id}', ['review'=> $review]);
+        return view('review.edit', ['review'=> $review]);
     }
 
     /**
