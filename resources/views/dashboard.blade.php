@@ -1,31 +1,35 @@
 <x-layout>
-    <main class="flex justify-around bg-cyan-500 h-screen">
-        <aside class=" flex flex-col justify-center bg-pink-500 box-border w-1/5 h-96 mt-6">
-            <h1 class="pl-6">manage</h1>
+    <main class="flex justify-around bg-neutral-900 h-screen">
+        <aside class="flex flex-col justify-center bg-lime-950 text-white box-border w-1/5 h-96 mt-6">
+            <h1 class="pl-6 text-2xl">manage</h1>
             <ul class="px-4">
-                <li><a href="/dashboard/movies">movies</a></li>
-                <li><a href="/dashboard/reviews">reviews</a></li>
+                <li class="text-xl"><a href="/dashboard/movies">movies</a></li>
+                <li class="text-xl"><a href="/dashboard/reviews">reviews</a></li>
             </ul>
         </aside>
-        <section class="flex flex-col bg-blue-500 w-3/5 mt-6 h-96">
-            <div class="bg-red-500 p-2">
-                <ul class="flex flex-row justify-evenly">
-                    <li>Namn</li>
-                    <li>genre</li>
-                    <li>release year</li>
-                    <li>actions</li>
+        <div class="mt-6">
+        <section class="flex flex-col">
+            <div class="bg-neutral-300 p-2">
+                <ul class="flex flex-start flex-row text-center">
+                    <li class="w-36">Namn</li>
+                    <li class="w-36">genre</li>
+                    <li class="w-36">release year</li>
+                    <li class="w-36">actions</li>
                 </ul>
             </div>
-            <div class="bg-green-500 p-2">
-                <ul class="flex flex-row justify-evenly">
-                    <li>dune</li>
-                    <li>2010</li>
-                    <li>coolt</li>
-                    <p>HEJ!</p>
+            <div class="bg-white p-2">
+                <ul class="flex flex-row text-center">
+                    <li class="w-36">dune</li>
+                    <li class="w-36">2010</li>
+                    <li class="w-36">coolt</li>
+                    <div class="w-36">
+                        <svg class=""src=""></svg>
+                    </div>
+                    
                 </ul>
-
-
             </div>
         </section>
+        <div class="flex rounded-full text-4xl bg-white w-12 h-12 justify-center align-items-center"><a href="#">+</a></div>
+    </div>
     </main>
 </x-layout>
