@@ -8,28 +8,38 @@
             </ul>
         </aside>
         <div class="mt-6">
-        <section class="flex flex-col">
-            <div class="bg-neutral-300 p-2">
-                <ul class="flex flex-start flex-row text-center">
-                    <li class="w-36">Namn</li>
-                    <li class="w-36">genre</li>
-                    <li class="w-36">release year</li>
-                    <li class="w-36">actions</li>
-                </ul>
+            <section class="flex flex-col">
+                <div class="bg-neutral-300 p-2">
+                    <ul class="flex flex-start flex-row text-center">
+                        <li class="w-36">Namn</li>
+                        <li class="w-36">genre</li>
+                        <li class="w-36">release year</li>
+                        <li class="w-36">actions</li>
+                    </ul>
+                </div>
+                <x-admin-movie></x-admin-movie>
+            </section>
+            <div class="flex rounded-full text-4xl bg-white w-12 h-12 m-2 justify-center align-items-center">
+                <a href="#">+</a>
             </div>
-            <div class="bg-white p-2">
-                <ul class="flex flex-row text-center">
-                    <li class="w-36">dune</li>
-                    <li class="w-36">2010</li>
-                    <li class="w-36">coolt</li>
-                    <div class="w-36">
-                        <svg class=""src=""></svg>
-                    </div>
-
-                </ul>
-            </div>
-        </section>
-        <div class="flex rounded-full text-4xl bg-white w-12 h-12 justify-center align-items-center"><a href="#">+</a></div>
-    </div>
+        </div>
     </main>
+    <form action="/movies/store" method="POST">
+        <div>
+            <label for="movie name">Movie name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter movie name" required>
+        </div>
+
+        <div>
+            <label for="release date">Release date:</label>
+            <input type="text" id="release date" name="release date" placeholder="Enter release date" required>
+        </div>
+
+        <div>
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" name="genre" placeholder="Enter genre" required>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
 </x-layout>
