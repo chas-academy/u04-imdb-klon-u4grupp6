@@ -31,14 +31,13 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $movie = Movie::findOrFail( $request->movie_id );
-        $user = User::findOrFail( $request->user_id );
+        $movie = Movie::findOrFail($request->movie_id);
         $review = new Review([
             'title' => $request->title,
             'content' => $request->content]);
 
         $movie->reviews()->save($review);
-        $user->reviews()->save($review);
+        $review->user()->associate($request->user());
 
         return redirect()->route('review.index')->with('success', 'Review created successfully');
     }
@@ -49,7 +48,9 @@ class ReviewController extends Controller
     public function show(string $id)
     {
         $review = Review::findOrFail( $id );
-        return view('review.show', ['movie' => $review]);
+        $movie = $review->movie();
+        $author = $review->user()->name;
+        return view('review.show', ['review' => $review, 'movie' => $movie, 'author' => $author]);
     }
 
     /**
@@ -58,7 +59,9 @@ class ReviewController extends Controller
     public function edit(string $id)
     {
         $review = Review::findOrFail( $id );
-        return view('review.edit', ['review'=> $review]);
+        $movie = $review->movie();
+        $author = $review->user()->name;
+        return view('review.show', ['review' => $review, 'movie' => $movie, 'author' => $author]);
     }
 
     /**

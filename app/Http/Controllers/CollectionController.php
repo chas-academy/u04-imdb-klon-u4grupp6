@@ -35,6 +35,7 @@ class CollectionController extends Controller
         ]);
 
         $collection->movies()->attatch($request->movie_ids);
+        $collection->user()->associate($request->user());
 
         return redirect()->route('collection.index')->with('success','Collection created successfully');
     }
@@ -45,7 +46,9 @@ class CollectionController extends Controller
     public function show(string $id)
     {
         $collection = Collection::findOrFail( $id );
-        return view('collection.show', ['collection' => $collection]);
+        $movies = $collection->movies();
+        $author = $collection->user()->name;
+        return view('collection.show', ['collection' => $collection, 'movies' => $movies, 'author' => $author]);
     }
 
     /**
@@ -54,7 +57,9 @@ class CollectionController extends Controller
     public function edit(string $id)
     {
         $collection = Collection::findOrFail( $id );
-        return view('collection.edit', ['collection'=> $collection]);
+        $movies = $collection->movies();
+        $author = $collection->user()->name;
+        return view('collection.edit', ['collection' => $collection, 'movies' => $movies, 'author' => $author]);
     }
 
     /**
