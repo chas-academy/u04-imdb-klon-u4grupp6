@@ -1,12 +1,12 @@
-<input type="checkbox" id="popup_toggle_create" class="hidden peer/create">
+<input type="checkbox" id="popup_toggle_update" class="hidden peer/update">
 
-<div id="popup_create" class="fixed inset-0 bg-gray-800 bg-opacity-75 items-center justify-center peer-checked/create:flex hidden">
+<div id="popup_update" class="fixed inset-0 bg-gray-800 bg-opacity-75 items-center justify-center peer-checked/update:flex hidden">
     <div class="bg-white p-6 rounded-lg shadow-lg flex items-center justify-center flex-col">
-        <h1 class="text-xl">Create movie</h1>
-        <form action="/movies/store" class="flex flex-col flex-end p-4" method="POST">
+        <h1 class="text-xl">Update {{$title}}</h1>
+        <form action="/movies/update{id}" class="flex flex-col flex-end p-4" method="UPDATE">
             @csrf
             <div class="p-2">
-                <label for="title">Movie title:</label>
+                <label for="title">Movie title</label>
                 <input type="text" id="title" class="w-full" name="title" placeholder="Enter movie title" required>
             </div>
 
@@ -30,7 +30,10 @@
 
             <button class="mt-4 bg-green-500 text-white px-4 py-2 rounded cursor-pointer" type="submit">Submit</button>
         </form>
-        <label for="popup_toggle_create" class="mt-4 bg-red-500 text-white px-4 py-2 rounded cursor-pointer">Close</label>
+        <div class="flex flex-row">
+        <label for="popup_toggle_update" class="mx-1 mt-2 bg-red-500 text-white px-4 py-2 rounded cursor-pointer">Close</label>
+        <label for="popup_toggle_delete" class="mx-1 mt-2 bg-red-900 text-white px-4 py-2 rounded cursor-pointer">Delete</label>
+        </div>
     </div>
 </div>
 </input>

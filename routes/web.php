@@ -31,14 +31,14 @@ Route::middleware('auth')->group(function () {
         Route::post('movies/store', 'store');
         Route::get('movies/edit/{id}', 'edit');
         Route::patch('movies/update/{id}','update');
-        Route::delete('movies/destroy/{id}', 'destroy');
+        Route::delete('movies/destroy/{id}', 'destroy')->name('movies.destroy');
     });
     Route::controller(ReviewController::class)->group(function() {
         Route::get('reviews/create', 'create');
         Route::post('reviews/store', 'store');
         Route::get('reviews/edit/{id}', 'edit');
         Route::patch('reviews/update/{id}','update');
-        Route::delete('reviews/destroy/{id}', 'destroy');
+        Route::delete('reviews/destroy/{id}', 'destroy')->name('movies.destroy');
     });
     Route::controller(CollectionController::class)->group(function() {
         Route::get('collections/create', 'create');

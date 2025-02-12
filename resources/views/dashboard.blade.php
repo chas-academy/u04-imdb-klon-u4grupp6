@@ -13,21 +13,27 @@
                 <div class="bg-neutral-300 p-2">
                     <ul class="flex flex-start flex-row text-ce ter">
                         <li class="w-36">title</li>
-                        <li class="w-36">release year</li>
+                        <li class="w-36">release date</li>
                         <li class="w-36">genre</li>
                         <li class="w-36">description</li>
                         <li class="w-36">actions</li>
                     </ul>
                 </div>
                 @foreach($movies as $movie)
-                <x-admin-movie :title="$movie->title" :description="$movie->description" :genre="$movie->genre" />
+                <!-- saknar release date -->
+                <x-admin-movie :id="$movie->id" :title="$movie->title" :release_date="$movie->release_date" :description="$movie->description" :genre="$movie->genre" />
                 @endforeach
             </section>
             <div class="flex rounded-full text-4xl bg-white w-12 h-12 m-2 justify-center">
-                <label for="popup_toggle" class="cursor-pointer">+</label>
+                <label for="popup_toggle_create" class="cursor-pointer">+</label>
             </div>
-            <x-admin-create-movie></x-admin-create-movie>
+            
 
         </div>
     </main>
+    <!-- admin update/delete/create components as popups-->
+    <x-admin-update-movie :title="$movie->title" :release_date="$movie->release_date" :description="$movie->description" :genre="$movie->genre"></x-admin-update-movie>
+    <x-admin-delete-movie></x-admin-delete-movie>
+
+    <x-admin-create-movie></x-admin-create-movie>
 </x-layout>

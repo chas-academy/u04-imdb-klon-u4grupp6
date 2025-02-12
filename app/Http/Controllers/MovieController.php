@@ -80,7 +80,7 @@ class MovieController extends Controller
 
         $movie->save();
 
-        return redirect()->route('movie.index')->with('success','Movie updated successfully');
+        return redirect()->route('dashboard')->with('success','Movie updated successfully');
     }
 
     /**
@@ -90,6 +90,6 @@ class MovieController extends Controller
     {
         $movie = Movie::findOrFail($id);
         $movie->delete();
-        return redirect()->route('movie.index')->with('success','Movie deleted successfully');
+        return redirect()->route('dashboard')->with('success','Movie deleted successfully');
     }
 }
