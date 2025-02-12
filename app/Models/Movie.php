@@ -11,7 +11,7 @@ class Movie extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description','release', 'genre'];
+    protected $fillable = ['title', 'description', 'genre', 'release'];
 
     public function reviews(): HasMany {
         return $this->hasMany(Review::class);
