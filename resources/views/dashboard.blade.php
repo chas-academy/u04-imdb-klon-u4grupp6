@@ -32,7 +32,6 @@
         </div>
     </main>
     <!-- admin update/delete/create components as popups-->
-    <x-admin-update-movie :title="$movie->title" :release_date="$movie->release_date" :description="$movie->description" :genre="$movie->genre"></x-admin-update-movie>
     <x-admin-delete-movie></x-admin-delete-movie>
 
     <x-admin-create-movie></x-admin-create-movie>

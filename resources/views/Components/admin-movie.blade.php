@@ -22,3 +22,4 @@
     </ul>
 </div>
 </label>
+<x-admin-update-movie></x-admin-update-movie>

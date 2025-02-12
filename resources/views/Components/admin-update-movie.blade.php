@@ -2,7 +2,7 @@
 
 <div id="popup_update" class="fixed inset-0 bg-gray-800 bg-opacity-75 items-center justify-center peer-checked/update:flex hidden">
     <div class="bg-white p-6 rounded-lg shadow-lg flex items-center justify-center flex-col">
-        <h1 class="text-xl">Update {{$title}}</h1>
+        <h1 class="text-xl">Update movie</h1>
         <form action="/movies/update{id}" class="flex flex-col flex-end p-4" method="UPDATE">
             @csrf
             <div class="p-2">
