@@ -11,10 +11,10 @@
         <div class="mt-6">
             <section class="flex flex-col">
                 <div class="bg-neutral-300 p-2">
-                    <ul class="flex flex-start flex-row text-center">
-                        <li class="w-36">Namn</li>
-                        <li class="w-36">genre</li>
+                    <ul class="flex flex-start flex-row text-ce ter">
+                        <li class="w-36">title</li>
                         <li class="w-36">release year</li>
+                        <li class="w-36">genre</li>
                         <li class="w-36">description</li>
                         <li class="w-36">actions</li>
                     </ul>
@@ -26,14 +26,8 @@
             <div class="flex rounded-full text-4xl bg-white w-12 h-12 m-2 justify-center">
                 <label for="popup_toggle" class="cursor-pointer">+</label>
             </div>
+            <x-admin-create-movie></x-admin-create-movie>
 
-            <input type="checkbox" id="popup_toggle" class="hidden peer">
-            <div id="popup" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center peer-checked:flex hidden">
-                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center justify-center flex-col">
-                    <x-admin-create-movie></x-admin-create-movie>
-                    <label for="popup_toggle" class="mt-4 bg-red-500 text-white px-4 py-2 rounded cursor-pointer p-4">Close</label>
-                </div>
-            </div>
         </div>
     </main>
 </x-layout>

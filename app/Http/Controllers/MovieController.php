@@ -13,7 +13,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return view("movie.index", ['movies' => $movies]);
+        return view("dashboard", ['movies' => $movies]);
     }
 
     /**
@@ -29,14 +29,23 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
+
+        // copilot suggested this code
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'genre' => 'required|string',
+            'release_date' => 'required|date'
+        ]);
+
         Movie::create([
             'title'=> $request->title,
             'description' => $request->description,
             'genre' => $request->genre,
-            'release' => $request->release
+            'release_date' => $request->release_date
         ]);
 
-        return redirect()->route('movie.index')->with('success','Movie added successfully');
+        return redirect()->route('dashboard')->with('success','Movie added successfully');
     }
 
     /**
@@ -67,7 +76,7 @@ class MovieController extends Controller
         $movie->title = $request->title;
         $movie->description = $request->description;
         $movie->genre = $request->genre;
-        $movie->release = $request->release;
+        $movie->release_date = $request->release_date;
 
         $movie->save();
 
