@@ -1,4 +1,5 @@
 <x-layout>
+
     <main class="flex justify-around bg-neutral-900 h-screen">
         <aside class="flex flex-col justify-center bg-lime-950 text-white box-border w-1/5 h-96 mt-6">
             <h1 class="pl-6 text-2xl">manage</h1>
@@ -14,32 +15,25 @@
                         <li class="w-36">Namn</li>
                         <li class="w-36">genre</li>
                         <li class="w-36">release year</li>
+                        <li class="w-36">description</li>
                         <li class="w-36">actions</li>
                     </ul>
                 </div>
-                <x-admin-movie></x-admin-movie>
+                @foreach($movies as $movie)
+                <x-admin-movie :title="$movie->title" :description="$movie->description" :genre="$movie->genre" />
+                @endforeach
             </section>
-            <div class="flex rounded-full text-4xl bg-white w-12 h-12 m-2 justify-center align-items-center">
-                <a href="#">+</a>
+            <div class="flex rounded-full text-4xl bg-white w-12 h-12 m-2 justify-center">
+                <label for="popup_toggle" class="cursor-pointer">+</label>
+            </div>
+
+            <input type="checkbox" id="popup_toggle" class="hidden peer">
+            <div id="popup" class="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center peer-checked:flex hidden">
+                <div class="bg-white p-6 rounded-lg shadow-lg flex items-center justify-center flex-col">
+                    <x-admin-create-movie></x-admin-create-movie>
+                    <label for="popup_toggle" class="mt-4 bg-red-500 text-white px-4 py-2 rounded cursor-pointer p-4">Close</label>
+                </div>
             </div>
         </div>
     </main>
-    <form action="/movies/store" method="POST">
-        <div>
-            <label for="movie name">Movie name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter movie name" required>
-        </div>
-
-        <div>
-            <label for="release date">Release date:</label>
-            <input type="text" id="release date" name="release date" placeholder="Enter release date" required>
-        </div>
-
-        <div>
-            <label for="genre">Genre:</label>
-            <input type="text" id="genre" name="genre" placeholder="Enter genre" required>
-        </div>
-
-        <button type="submit">Submit</button>
-    </form>
 </x-layout>
