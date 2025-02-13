@@ -14,7 +14,7 @@ Route::controller(MovieController::class)->group(function() {
     Route::get('/movies/{id}','show');
 });
 
-Route::view('/movielist', 'movielist');
+Route::view('/overview', 'movie-overview');
     
     
 
