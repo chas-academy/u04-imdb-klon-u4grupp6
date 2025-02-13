@@ -7,7 +7,7 @@
 ])
 
 <div class="bg-white p-2 hover:bg-gray-100" data-movie-id="{{ $id }}">
-    <ul class="flex flex-row items-center text-center h-12 ">
+    <ul class="flex flex-row text-center h-12 items-center   [&_li]:truncate">
         <li class="w-36">{{ $title }}</li>
         <li class="w-36">{{ $release_date }}</li>
         <li class="w-36">{{ $genre }}</li>

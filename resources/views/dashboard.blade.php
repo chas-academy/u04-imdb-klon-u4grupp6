@@ -1,17 +1,18 @@
 <x-layout>
-
-    <main class="flex justify-around bg-neutral-900 h-screen">
-        <aside class="flex flex-col justify-center bg-lime-950 text-white box-border w-1/5 h-96 mt-6">
+    <main class="flex justify-around bg-neutral-900 h-screen items-center">
+        <aside class="flex rounded flex-col justify-center bg-green-950 text-white box-border w-1/5 h-96 mt-6">
             <h1 class="pl-6 text-2xl">manage</h1>
             <ul class="px-4">
-                <li class="text-xl"><a href="/dashboard/movies">movies</a></li>
-                <li class="text-xl"><a href="/dashboard/reviews">reviews</a></li>
+                <li class="text-xl hover:bg-green-900"><a href="/dashboard/movies">movies</a></li>
+                <li class="text-xl hover:bg-green-900" ><a href="/dashboard/reviews">reviews</a></li>
             </ul>
         </aside>
-        <div class="mt-6">
+        <div class="mt-6 flex flex-col [&_h1]:text-center">
+        <h1 class="text-2xl mb-5 text-white">Admin dashboard</h1>
+
             <section class="flex flex-col">
                 <div class="bg-neutral-300 p-2">
-                    <ul class="flex flex-start flex-row text-ce ter">
+                    <ul class="flex flex-start flex-row text-center">
                         <li class="w-36">title</li>
                         <li class="w-36">release date</li>
                         <li class="w-36">genre</li>
