@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Collection;
+use app\Http\Requests\CollectionRequest;
 
 class CollectionController extends Controller
 {
@@ -54,7 +55,7 @@ class CollectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(CollectionRequest $request, string $id)
     {
         $collection = Collection::findOrFail( $id );
         $movies = $collection->movies();
@@ -65,7 +66,7 @@ class CollectionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CollectionRequest $request, string $id)
     {
         $collection = Collection::findOrFail( $id );
 
@@ -82,7 +83,7 @@ class CollectionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CollectionRequest $request, string $id)
     {
         $collection = Collection::findOrFail( $id );
 
