@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Collection;
+use app\Http\Requests\CollectionRequest;
 
 class CollectionController extends Controller
 {
@@ -35,6 +36,7 @@ class CollectionController extends Controller
         ]);
 
         $collection->movies()->attatch($request->movie_ids);
+        $collection->user()->associate($request->user());
 
         return redirect()->route('collection.index')->with('success','Collection created successfully');
     }
@@ -45,27 +47,33 @@ class CollectionController extends Controller
     public function show(string $id)
     {
         $collection = Collection::findOrFail( $id );
-        return view('collection.show', ['collection' => $collection]);
+        $movies = $collection->movies();
+        $author = $collection->user()->name;
+        return view('collection.show', ['collection' => $collection, 'movies' => $movies, 'author' => $author]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(CollectionRequest $request, string $id)
     {
         $collection = Collection::findOrFail( $id );
-        return view('collection.edit', ['collection'=> $collection]);
+        $movies = $collection->movies();
+        $author = $collection->user()->name;
+        return view('collection.edit', ['collection' => $collection, 'movies' => $movies, 'author' => $author]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(CollectionRequest $request, string $id)
     {
         $collection = Collection::findOrFail( $id );
 
         $collection->title = $request->title;
         $collection->description = $request->description;
+
+        $collection->save();
 
         $collection->movies()->sync($request->movie_ids);
 
@@ -75,7 +83,7 @@ class CollectionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(CollectionRequest $request, string $id)
     {
         $collection = Collection::findOrFail( $id );
 

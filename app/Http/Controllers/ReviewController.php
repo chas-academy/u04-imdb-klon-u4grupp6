@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use App\Models\Movie;
-use App\Models\User;
+use App\Http\Requests\ReviewRequest;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -31,14 +31,13 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $movie = Movie::findOrFail( $request->movie_id );
-        $user = User::findOrFail( $request->user_id );
+        $movie = Movie::findOrFail($request->movie_id);
         $review = new Review([
             'title' => $request->title,
             'content' => $request->content]);
 
         $movie->reviews()->save($review);
-        $user->reviews()->save($review);
+        $review->user()->associate($request->user());
 
         return redirect()->route('review.index')->with('success', 'Review created successfully');
     }
@@ -49,22 +48,26 @@ class ReviewController extends Controller
     public function show(string $id)
     {
         $review = Review::findOrFail( $id );
-        return view('review.show', ['movie' => $review]);
+        $movie = $review->movie();
+        $author = $review->user()->name;
+        return view('review.show', ['review' => $review, 'movie' => $movie, 'author' => $author]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(ReviewRequest $request, string $id)
     {
         $review = Review::findOrFail( $id );
-        return view('review.edit', ['review'=> $review]);
+        $movie = $review->movie();
+        $author = $review->user()->name;
+        return view('review.show', ['review' => $review, 'movie' => $movie, 'author' => $author]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ReviewRequest $request, string $id)
     {
         $review = Review::findOrFail( $id );
 
@@ -79,7 +82,7 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(ReviewRequest $request, string $id)
     {
         $review = Review::findOrFail( $id );
         $review->delete();
