@@ -72,6 +72,8 @@ class CollectionController extends Controller
         $collection->title = $request->title;
         $collection->description = $request->description;
 
+        $collection->save();
+
         $collection->movies()->sync($request->movie_ids);
 
         return redirect()->route('collection.index')->with('success','Collection updated successfully');
