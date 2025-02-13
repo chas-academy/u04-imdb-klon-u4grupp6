@@ -10,10 +10,14 @@ class MovieController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $movies = Movie::all();
-        return view("dashboard", ['movies' => $movies]);
+        if ($request->user()->is_admin) {
+            return view("admin.dashboard", ['movies' => $movies]);
+        } else {
+            return view('movies.index', ['movies'=> $movies]);
+        }
     }
 
     /**
