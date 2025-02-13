@@ -32,7 +32,8 @@ class MovieController extends Controller
         Movie::create([
             'title'=> $request->title,
             'description' => $request->description,
-            'genre' => $request->genre
+            'genre' => $request->genre,
+            'release' => $request->release
         ]);
 
         return redirect()->route('movie.index')->with('success','Movie added successfully');
@@ -66,6 +67,7 @@ class MovieController extends Controller
         $movie->title = $request->title;
         $movie->description = $request->description;
         $movie->genre = $request->genre;
+        $movie->release = $request->release;
 
         $movie->save();
 
