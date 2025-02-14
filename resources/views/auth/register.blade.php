@@ -1,12 +1,4 @@
 <x-layout>
-<header class="bg-yellow-600 p-4 flex items-center justify-between sm:flex-row sm:gap-x-4">
-            <div class="text-white font-bold text-xl">CHAs</div>
-            <div class="flex items-center gap-4 sm:flex-row sm:justify-between">
-            <button class="text-white">Watchlist</button>
-            <button class="text-white">Namn</button>
-            <button class="bg-white text-yellow-600 px-4 py-2 rounded">SWE</button>
-            </div>
-        </header>
     <div class="flex items-center justify-center min-h-screen bg-gray-100">
         <div class="bg-white p-6 rounded-lg shadow-lg w-96">
             <h2 class="text-center text-xl font-bold mb-4">Skapa Konto</h2>
