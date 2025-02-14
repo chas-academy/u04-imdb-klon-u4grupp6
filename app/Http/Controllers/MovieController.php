@@ -16,7 +16,7 @@ class MovieController extends Controller
         if ($request->user()->is_admin) {
             return view("admin.dashboard", ['movies' => $movies]); //REMEMBER TO MOVE THE DASHBOARD VIEW TO THIS PATH!
         } else {
-            return view('movies.index', ['movies'=> $movies]);
+            return view('movie.index', ['movies'=> $movies]);
         }
     }
 
