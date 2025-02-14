@@ -1,7 +1,17 @@
-<x-guest-layout>
+<x-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-
+            <body  class="bg-gray-100 text-gray-800">
+         <header class="bg-yellow-600 p-4 flex items-center justify-between sm:flex-row sm:gap-x-4">
+            <div class="text-white font-bold text-xl">CHAs</div>
+            <div class="flex items-center gap-4 sm:flex-row sm:justify-between">
+            <button class="text-white">Watchlist</button>
+            <button class="text-white">Namn</button>
+            <button class="bg-white text-yellow-600 px-4 py-2 rounded">SWE</button>
+            </div>
+        </header>
+<main>
+    
     <div class="flex justify-center items-center min-h-screen bg-gray-100 px-4">
         <div class="flex bg-white p-8 rounded-lg shadow-lg max-w-4xl w-full">
             <!-- Login Form -->
@@ -61,4 +71,6 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+    </main>
+</body>
+</x-layout>
