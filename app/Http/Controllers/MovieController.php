@@ -13,7 +13,12 @@ class MovieController extends Controller
     public function index(Request $request)
     {
         $movies = Movie::all();
-        if ($request->user()->is_admin) {
+        if ($request->user()) {
+            $user = $request->user();
+        } else {
+            return view('movie.index', ['movies'=> $movies]);
+        }
+        if ($user->is_admin) {
             return view("admin.dashboard", ['movies' => $movies]); //REMEMBER TO MOVE THE DASHBOARD VIEW TO THIS PATH!
         } else {
             return view('movie.index', ['movies'=> $movies]);
