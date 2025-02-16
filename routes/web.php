@@ -18,10 +18,6 @@ Route::controller(ReviewController::class)->group(function() {
     Route::get('/reviews', 'index');
     Route::get('/reviews/{id}','show');
 });
-Route::controller(CollectionController::class)->group(function() {
-    Route::get('/collections', 'index');
-    Route::get('/collections/{id}','show');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -36,6 +32,8 @@ Route::middleware('auth')->group(function () {
         Route::delete('reviews/destroy/{id}', 'destroy')->name('reviews.destroy');
     });
     Route::controller(CollectionController::class)->group(function() {
+        Route::get('/collections', 'index');
+        Route::get('/collections/{id}','show');
         Route::get('collections/create', 'create');
         Route::post('collections/store', 'store');
         Route::get('collections/edit/{id}', 'edit');
@@ -44,7 +42,12 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::middleware([EnsureIsAdmin::class])->group(function() {
+Route::middleware(['auth', EnsureIsAdmin::class])->group(function() {
+    Route::get('/dashboard', function () {
+        $movies = \App\Models\Movie::all();
+        return view('admin.dashboard', ['movies' => $movies]);
+    })->name('dashboard');
+
     Route::controller(MovieController::class)->group(function() {
         Route::get('movies/create', 'create');
         Route::post('movies/store', 'store');
@@ -52,12 +55,13 @@ Route::middleware([EnsureIsAdmin::class])->group(function() {
         Route::patch('movies/update/{id}','update');
         Route::delete('movies/destroy/{id}', 'destroy')->name('movies.destroy');
     });
+
     Route::controller(AdminController::class)->group(function() {
         Route::get('admin/users','index');
         Route::get('admin/users/{id}', 'show');
         Route::get('admin/users/edit/{id}', 'edit');
         Route::patch('admin/users/update/{id}','update');
-        Route::delete('admin/users/destroy{id}', 'destroy');
+        Route::delete('admin/users/destroy/{id}', 'destroy');
     });
 });
 

@@ -38,8 +38,6 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-
-        // copilot suggested this code
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
