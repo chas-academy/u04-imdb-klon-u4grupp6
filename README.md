@@ -22,3 +22,5 @@ möte anteckningar: https://docs.google.com/document/d/1-u5DLuDcwLrIKqimLbYnJhik
 ER diagram: https://dbdiagram.io/d/uo4-6797c64b263d6cf9a034174a
 
 figma design: https://www.figma.com/design/kbI7YI3FXKayGtfz6l9tj7/U04?node-id=55-83&t=vG2UPvy1LU2QJrby-1
+
+Sitemap: https://www.figma.com/board/kRXR7iCsHBtFjBjqaBUWuS/sitemap?node-id=0-1&t=UA4keChY6gi3ymjD-1

@@ -17,4 +17,12 @@ RUN apk add --no-cache npm
 RUN npm install
 # Build Vite assets
 RUN npm run build
+
+# Set PHP memory limit
+RUN echo "memory_limit = 256M" >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
+
+# Set permissions for storage and bootstrap/cache directories
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
 CMD ["/start.sh"]
