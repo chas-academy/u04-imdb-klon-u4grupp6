@@ -3,8 +3,9 @@
         <aside class="flex rounded flex-col justify-center bg-green-950 text-white box-border w-1/5 h-96 mt-6">
             <h1 class="pl-6 text-2xl">manage</h1>
             <ul class="px-4">
-                <li class="text-xl hover:bg-green-900"><a href="/dashboard/movies">movies</a></li>
-                <li class="text-xl hover:bg-green-900" ><a href="/dashboard/reviews">reviews</a></li>
+                <li class="text-xl hover:bg-green-900"><a href="/movies">movies</a></li>
+                <li class="text-xl hover:bg-green-900" ><a href="#">reviews</a></li>
+                <li class="text-xl hover:bg-green-900" ><a href="#">users</a></li>
             </ul>
         </aside>
         <div class="mt-6 flex flex-col [&_h1]:text-center">
@@ -30,10 +31,6 @@
             
 
         </div>
-    </main>
-    <!-- admin update/delete/create components as popups-->
-    <x-admin-update-movie :title="$movie->title" :release_date="$movie->release_date" :description="$movie->description" :genre="$movie->genre"></x-admin-update-movie>
-    <x-admin-delete-movie></x-admin-delete-movie>
-
+    </main> 
     <x-admin-create-movie></x-admin-create-movie>
 </x-layout>

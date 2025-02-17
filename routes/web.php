@@ -47,8 +47,8 @@ Route::middleware(['auth', EnsureIsAdmin::class])->group(function() {
     Route::controller(MovieController::class)->group(function() {
         Route::get('movies/create', 'create');
         Route::post('movies/store', 'store');
-        Route::get('movies/edit/{id}', 'edit');
-        Route::patch('movies/update/{id}','update');
+        Route::get('movies/edit/{id}', 'edit')->name('movies.edit');
+        Route::patch('movies/update/{id}','update')->name('movies.update');
         Route::delete('movies/destroy/{id}', 'destroy')->name('movies.destroy');
     });
 
@@ -58,7 +58,9 @@ Route::middleware(['auth', EnsureIsAdmin::class])->group(function() {
         Route::get('admin/users/edit/{id}', 'edit');
         Route::patch('admin/users/update/{id}','update');
         Route::delete('admin/users/destroy/{id}', 'destroy');
+        
     });
+    // ReviewController for admin
 });
 
 require __DIR__.'/auth.php';
