@@ -8,9 +8,9 @@ use App\Http\Controllers\CollectionController;
 use App\Http\Middleware\EnsureIsAdmin;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'home');
+Route::view('/', 'home')->name('home');
 Route::controller(MovieController::class)->group(function() {
-    Route::get('/movies', 'index');
+    Route::get('/movies', 'index')->name('dashboard');
     Route::get('/movies/{id}','show');
 });
 
@@ -43,10 +43,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', EnsureIsAdmin::class])->group(function() {
-    Route::get('/dashboard', function () {
-        $movies = \App\Models\Movie::all();
-        return view('admin.dashboard', ['movies' => $movies]);
-    })->name('dashboard');
 
     Route::controller(MovieController::class)->group(function() {
         Route::get('movies/create', 'create');
