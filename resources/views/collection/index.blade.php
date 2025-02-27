@@ -1,6 +1,5 @@
 <x-layout>
    <body class="bg-gray-100 text-gray-800">
-
     <!-- Watchlist Section -->
     <main class="max-w-4xl mx-auto p-6">
         <section class="bg-white shadow-md rounded-lg p-6">
@@ -15,62 +14,35 @@
             </div>
 
             <div class="space-y-4">
-                @foreach ([
-                    [
-                        'title' => 'Recep Ivedik 3',
-                        'year' => '2010',
-                        'duration' => '1hr 53min',
-                        'description' => 'Recep struggles with life after the loss of his grandmother. Comedy and drama ensue.',
-                        'director' => 'Togan Gökbakar',
-                        'image' => 'https://m.media-amazon.com/images/M/MV5BNDcxNzAyZjMtMDZiMS00NmNiLTkxNmQtYzFhNjUxYmQzNDdjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg'
-                    ],
-                    [
-                        'title' => 'Sky Force',
-                        'year' => '2025',
-                        'duration' => '2hr 5min',
-                        'description' => 'An epic tale of aviation heroes saving the world in the face of a global crisis.',
-                        'director' => 'Sandra Kwok',
-                        'image' => 'https://m.media-amazon.com/images/M/MV5BZTViYzEwYjMtMDJlNy00ZTdiLWE3YWMtN2Q3MWFiYTFjZGZmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg'
-                    ],
-                    [
-                        'title' => 'Rush Hour',
-                        'year' => '2007',
-                        'duration' => '1hr 31min',
-                        'description' => 'A Hong Kong detective teams up with an LAPD officer to solve a kidnapping case.',
-                        'director' => 'Brett Ratner',
-                        'image' => 'https://m.media-amazon.com/images/M/MV5BMTA0Nzg5NjQ0MDBeQTJeQWpwZ15BbWU3MDE4Mzg5NDE@._V1_.jpg'
-                    ],
-                    [
-                        'title' => '22 Jump Street',
-                        'year' => '2014',
-                        'duration' => '2hr 12min',
-                        'description' => 'Two undercover cops go to college to take down a drug ring.',
-                        'director' => 'Phil Lord & Christopher Miller',
-                        'image' => 'https://m.media-amazon.com/images/M/MV5BMTcwNzAxMDU1M15BMl5BanBnXkFtZTgwNDE2NTU1MTE@._V1_.jpg'
-                    ]
-                ] as $index => $movie)
-                <div class="flex items-start gap-4 bg-gray-50 p-4 rounded-lg shadow-sm sm:flex-row">
-                    <img
-                        src="{{ $movie['image'] }}"
-                        alt="{{ $movie['title'] }}"
-                        class="w-20 h-32 rounded-md sm:w-32 sm:h-48"
-                    />
-                    <div>
-                        <h2 class="text-lg font-semibold sm:text-md">
-                            {{ $index + 1 }}. {{ $movie['title'] }}
-                        </h2>
-                        <p class="text-gray-600 text-sm mb-2 sm:text-xs">
-                            {{ $movie['year'] }} • {{ $movie['duration'] }}
-                        </p>
-                        <p class="text-gray-600 text-sm sm:text-xs">
-                            {{ $movie['description'] }}
-                        </p>
-                        <p class="text-gray-600 text-sm mt-2 font-medium sm:text-xs">
-                            Regisser: {{ $movie['director'] }}
-                        </p>
+                <!-- Loop through collections -->
+                @foreach ($collections as $collection)
+                    <div class="flex items-start gap-4 bg-gray-50 p-4 rounded-lg shadow-sm sm:flex-row">
+                        <div>
+                            <h2 class="text-lg font-semibold sm:text-md">
+                                {{ $collection->title }}
+                            </h2>
+                            <p class="text-gray-600 text-sm mb-2 sm:text-xs">
+                                Description: {{ $collection->description }}
+                            </p>
+
+                            <!-- Display movies in the collection -->
+                            <h3 class="text-sm font-medium mt-4">Movies in this collection:</h3>
+                            <ul class="text-gray-600 text-sm sm:text-xs">
+                                @foreach ($collection->movies as $movie)
+                                    <li>{{ $movie->title }} ({{ $movie->year }})</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="ml-auto text-right">
+                            <!-- Edit and Delete links for CRUD -->
+                            <a href="{{ route('collections.edit', $collection->id) }}" class="text-blue-600">Edit</a> |
+                            <form action="{{ route('collections.destroy', $collection->id) }}" method="POST" class="inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-600">Delete</button>
+                            </form>
+                        </div>
                     </div>
-                    <button class="ml-auto text-blue-600 sm:ml-0">i</button>
-                </div>
                 @endforeach
             </div>
         </section>
