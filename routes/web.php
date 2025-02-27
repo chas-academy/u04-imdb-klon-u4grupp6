@@ -40,11 +40,12 @@ Route::middleware('auth')->group(function () {
         Route::delete('reviews/destroy/{id}', 'destroy');
     });
     Route::controller(CollectionController::class)->group(function() {
-        Route::get('collections/create', 'create');
-        Route::post('collections/store', 'store');
-        Route::get('collections/edit/{id}', 'edit');
-        Route::patch('collections/update/{id}','update');
-        Route::delete('collections/destroy/{id}', 'destroy');
+        Route::get('collections', [CollectionController::class, 'index'])->name('collections.index');
+        Route::get('collections/create', [CollectionController::class, 'create'])->name('collections.create');
+        Route::post('collections/store', [CollectionController::class, 'store'])->name('collections.store');
+        Route::get('collections/edit/{id}', [CollectionController::class, 'edit'])->name('collections.edit');
+        Route::patch('collections/update/{id}', [CollectionController::class, 'update'])->name('collections.update');
+        Route::delete('collections/destroy/{id}', [CollectionController::class, 'destroy'])->name('collections.destroy');
     });
 });
 

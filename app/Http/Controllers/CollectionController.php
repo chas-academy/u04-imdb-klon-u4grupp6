@@ -21,7 +21,8 @@ class CollectionController extends Controller
      */
     public function create()
     {
-        return view("collection.create");
+        $movies = Movie::all();
+        return view("collection.create", compact('movies'));
     }
 
     /**
