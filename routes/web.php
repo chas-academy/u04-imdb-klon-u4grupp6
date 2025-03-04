@@ -9,9 +9,10 @@ use App\Http\Middleware\EnsureIsAdmin;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
+
 Route::controller(MovieController::class)->group(function() {
-    Route::get('/movies', 'index');
-    Route::get('/movies/{id}','show');
+    Route::get('/movies', 'index'); // Visa alla filmer
+    Route::get('/movies/{id}', 'show'); // Visa en specifik film
 });
 
 Route::controller(ReviewController::class)->group(function() {
